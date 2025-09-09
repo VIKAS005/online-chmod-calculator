@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Line 1-4: Document type and basic HTML structure -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Online chmod calculator to convert Linux file permissions between octal, symbolic and textual formats">
+    <title>Online Chmod Calculator | Linux File Permissions</title>
+    
+    <!-- Line 5-7: External resources and favicon -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Line 8-12: Main container and header -->
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-terminal"></i> Chmod Calculator</h1>
+            <p class="subtitle">Convert Linux file permissions between different formats</p>
+        </header>
+
+        <!-- Line 13-30: Permission checkboxes section -->
+        <main class="main-content">
+            <div class="permission-grid">
+                <div class="permission-section">
+                    <h3>Owner (User)</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="owner-read" data-user="owner" data-permission="read"> Read (r)</label>
+                        <label><input type="checkbox" id="owner-write" data-user="owner" data-permission="write"> Write (w)</label>
+                        <label><input type="checkbox" id="owner-execute" data-user="owner" data-permission="execute"> Execute (x)</label>
+                    </div>
+                </div>
+
+                <div class="permission-section">
+                    <h3>Group</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="group-read" data-user="group" data-permission="read"> Read (r)</label>
+                        <label><input type="checkbox" id="group-write" data-user="group" data-permission="write"> Write (w)</label>
+                        <label><input type="checkbox" id="group-execute" data-user="group" data-permission="execute"> Execute (x)</label>
+                    </div>
+                </div>
+
+                <div class="permission-section">
+                    <h3>Others (World)</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="others-read" data-user="others" data-permission="read"> Read (r)</label>
+                        <label><input type="checkbox" id="others-write" data-user="others" data-permission="write"> Write (w)</label>
+                        <label><input type="checkbox" id="others-execute" data-user="others" data-permission="execute"> Execute (x)</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Line 31-45: Results display section -->
+            <div class="results-section">
+                <div class="result-card">
+                    <h3>Octal Notation</h3>
+                    <div class="result-value" id="octal-result">000</div>
+                    <small>Numeric representation</small>
+                </div>
+
+                <div class="result-card">
+                    <h3>Symbolic Notation</h3>
+                    <div class="result-value" id="symbolic-result">---------</div>
+                    <small>ls -l format</small>
+                </div>
+
+                <div class="result-card">
+                    <h3>Command</h3>
+                    <div class="result-value" id="command-result">chmod 000 filename</div>
+                    <small>Terminal command</small>
+                </div>
+            </div>
+
+            <!-- Line 46-65: Input section for reverse calculation -->
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="octal-input">Enter Octal Value:</label>
+                    <input type="text" id="octal-input" placeholder="e.g., 755" maxlength="3">
+                    <button id="convert-btn">Convert</button>
+                </div>
+                
+                <div class="quick-presets">
+                    <h3>Common Presets</h3>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" data-value="755">755 (rwxr-xr-x)</button>
+                        <button class="preset-btn" data-value="644">644 (rw-r--r--)</button>
+                        <button class="preset-btn" data-value="600">600 (rw-------)</button>
+                        <button class="preset-btn" data-value="777">777 (rwxrwxrwx)</button>
+                        <button class="preset-btn" data-value="000">000 (---------)</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Line 66-75: Information section -->
+            <div class="info-section">
+                <h3>Permission Values</h3>
+                <table class="permission-table">
+                    <tr><th>Permission</th><th>Octal</th><th>Binary</th></tr>
+                    <tr><td>--- (none)</td><td>0</td><td>000</td></tr>
+                    <tr><td>--x (execute)</td><td>1</td><td>001</td></tr>
+                    <tr><td>-w- (write)</td><td>2</td><td>010</td></tr>
+                    <tr><td>-wx (write+execute)</td><td>3</td><td>011</td></tr>
+                    <tr><td>r-- (read)</td><td>4</td><td>100</td></tr>
+                    <tr><td>r-x (read+execute)</td><td>5</td><td>101</td></tr>
+                    <tr><td>rw- (read+write)</td><td>6</td><td>110</td></tr>
+                    <tr><td>rwx (all)</td><td>7</td><td>111</td></tr>
+                </table>
+            </div>
+        </main>
+
+        <!-- Line 76-80: Footer -->
+        <footer class="footer">
+    <p>&copy; 2025 Chmod Calculator | Built with HTML, CSS & JavaScript</p>
+    <p><i class="fas fa-code"></i> Deployed on AWS S3 with Terraform</p>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/vikas-prajapati-986135203/" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin"></i> Connect on LinkedIn
+        </a>
+        <a href="https://github.com/VIKAS005/online-chmod-calculator.git" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> View on GitHub
+        </a>
+    </div>
+        </footer>
+    </div>
+
+    <!-- Line 81: JavaScript inclusion -->
+    <script src="script.js"></script>
+</body>
+</html>
