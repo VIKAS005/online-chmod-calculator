@@ -1,4 +1,4 @@
-# online-chmod-calculator
+# Online-chmod-calculator
 Online Chmod Calculator
 
 
