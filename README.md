@@ -74,7 +74,7 @@ Deploy the static site
 Now you can check the created bucket by logging into the **AWS Management Console**,  
 navigating to the **S3 service**, and verifying that your Terraform-generated bucket is listed/generated.
 
-![S3 Bucket Created](<img width="959" height="260" alt="Image" src="https://github.com/user-attachments/assets/209b1c4d-6282-4b7d-b5e4-a017f71121cb" />)
+![S3 Bucket Created]("https://github.com/user-attachments/assets/209b1c4d-6282-4b7d-b5e4-a017f71121cb)
 
 
 
