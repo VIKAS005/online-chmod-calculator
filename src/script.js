@@ -92,7 +92,7 @@ class ChmodCalculator {
     updateResults() {
         const octal = this.calculateOctal();
         const symbolic = this.calculateSymbolic();
-        const command = `chmod ${octal} filename`;
+        const command = `chmod ${octal} <filename>`;
 
         document.getElementById('octal-result').textContent = octal;
         document.getElementById('symbolic-result').textContent = symbolic;
@@ -207,4 +207,5 @@ const additionalCSS = `
 document.addEventListener('DOMContentLoaded', () => {
     new ChmodCalculator();
     console.log('Chmod Calculator ready!');
+
 });
